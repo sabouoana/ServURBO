@@ -1,0 +1,33 @@
+{
+    "name": "serverurbo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon app.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@koa/cors": "^2.2.3",
+        "alert": "^5.0.10",
+        "bcrypt-nodejs": "^0.0.3",
+        "body-parser": "^1.19.0",
+        "jsonwebtoken": "^8.5.1",
+        "knex": "^0.95.6",
+        "koa": "^2.13.1",
+        "koa-body": "^4.2.0",
+        "koa-body-parser": "^1.1.2",
+        "koa-bodyparser": "^4.3.0",
+        "koa-jwt": "^4.0.1",
+        "koa-router": "^10.0.0",
+        "pg": "^8.6.0",
+        "psql": "^0.0.1",
+        "save": "^2.4.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.7"
+    }
+}
