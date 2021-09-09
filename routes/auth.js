@@ -10,6 +10,7 @@ module.exports = {
     login,
     test
 }
+
 function generareToken(ctx) {
 
     const payload = { sub: 1 };
@@ -23,10 +24,10 @@ function generareToken(ctx) {
 
 
 function test(ctx) {
-    ctx.body= ctx.request.jwtPayload;
+    ctx.body = ctx.request.jwtPayload;
 }
 
-async function login  (ctx){
+async function login(ctx) {
     const { username, password } = ctx.request.body.login;
     console.log(username, password);
 
@@ -39,9 +40,9 @@ async function login  (ctx){
 
 
     const dbUser = await executeQuery({
-            text: `select id, password from users where username = $1`,
-            values: [username]
-        })
+        text: `select id, password from users where username = $1`,
+        values: [username]
+    })
 
     if (!dbUser) {
         ctx.throw(401, 'No such user.');
@@ -50,13 +51,13 @@ async function login  (ctx){
     if (await bcrypt.compare(password, dbUser[0].password)) {
         const payload = { sub: dbUser.id };
         const token = jwt.sign(payload, secret);
-        ctx.body = {token};
+        ctx.body = { token };
         console.log(token);
     } else {
         ctx.throw(401, wrongUserPassMsg);
     }
 
-    
+
 };
 
 

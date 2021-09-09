@@ -39,7 +39,7 @@ app.use(router.allowedMethods());
 app.listen(process.env.PORT || 3000);
 
 
-router.post('/saveCoordinates', koaBody(), (ctx) => {
+router.post('/saveCoordinates', bodyParser(), (ctx) => {
     console.log(ctx.request.body);
 
     const longitude = ctx.request.body.marker.longitude;
@@ -48,7 +48,7 @@ router.post('/saveCoordinates', koaBody(), (ctx) => {
 
     executeQuery({
         text: "INSERT INTO markers(longitude, latitude, type) VALUES($1, $2, $3)",
-        values: [ctx.request.body.marker.longitude, ctx.request.body.marker.latitude, ctx.request.body.marker.id]
+        values: [ctx.request.body.marker.longitude, ctx.request.body.marker.latitude, ctx.request.body.marker.type]
 
     })
 

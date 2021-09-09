@@ -25,28 +25,3 @@ INSERT INTO `markers` (
   'travis',
   'mypassword'
 )
-
-CREATE TABLE `pets` (
- `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
- `user_id` INTEGER NOT NULL,
- `name` TEXT NOT NULL,
- `species` TEXT
-);
-INSERT INTO `pets` (
-  `user_id`,
-  `name`,
-  `species`
-) VALUES (
-  1,
-  'Bunny',
-  'dog'
-)
-INSERT INTO `pets` (
-  `user_id`,
-  `name`,
-  `species`
-) VALUES (
-  1,
-  'Ru',
-  'cat'
-)
